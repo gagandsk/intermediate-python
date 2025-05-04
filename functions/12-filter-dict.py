@@ -29,3 +29,11 @@ new_list = list(filter(lambda item: item['home_team_result'] == 'Win', matches))
 print(len(new_list))
 print(new_list)
 print(matches)
+
+
+def filter_by_length(words):
+   return list(filter(lambda word: len(word) > 4, words))
+
+words = ['amor', 'sol', 'piedra', 'día']
+response = filter_by_length(words)
+print(response)
