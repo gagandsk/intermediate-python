@@ -1,11 +1,3 @@
-linea 1
-linea 2
-linea 3
-
-a
-
-b
-c
-d
-e
-f
+nueva linia insertada
+nueva 2 linia insertada
+nueva 3 linia insertada
