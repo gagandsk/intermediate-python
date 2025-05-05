@@ -1,32 +1,27 @@
 import utils
-
-data = [
-        {
-            'Country': 'Colombia',
-            'Population': 300
-        },
-        {
-            'Country': 'Bolivia',
-            'Population': 400
-        },
-        {
-            'Country': 'Ecuador',
-            'Population': 500
-        },
-        {
-            'Country': 'España',
-            'Population': 600
-        }
-    ]
+import read_csv
+import charts
 
 def run():
-    keys, values = utils.get_population()
-    print(keys, values)
+    
+  data = read_csv.read_csv('data_set2.csv')
+  '''
+  data = list(filter(lambda item : item['Continent'] == 'South America',data))
 
+  countries = list(map(lambda x: x['Country'], data))
+  percentages = list(map(lambda x: x['World Population Percentage'], data))
+  charts.generate_pie_chart(countries, percentages)
+    '''
+  
+  country = input('Type Country => ')
 
-    country = input('Que país desea buscar? ')
-    result = utils.population_by_country(data, country)
-    print(result)
+  result = utils.population_by_country(data, country)
+
+  if len(result) > 0:
+    country = result[0]
+    labels, values = utils.get_population(country)
+    charts.generate_pie_chart(labels, values)
+  
     
 #si es ejecutado desde la terminal, que ejecute el metodo 'run'
 if __name__ == '__main__':
